@@ -23,8 +23,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <!-- Font Awesome via CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- 本站样式 -->
-  <link rel="stylesheet" href="stylesheets/styles.css">
+  <!-- 本站样式（?v= 版本号用于绕过 CDN / 浏览器对 CSS 的强缓存） -->
+  <link rel="stylesheet" href="stylesheets/styles.css?v=2">
+
+  <!--
+    语言切换的「关键规则」内联在此，不放外部样式表：
+    GitHub Pages 对 CSS 返回 cache-control: max-age=600，一旦旧版 CSS 被缓存，
+    切换就会失效（中英文同时显示）。内联后不受影响。
+  -->
+  <style>
+    html[lang="zh-CN"] .i18n-en,
+    html[lang="en"] .i18n-zh {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
