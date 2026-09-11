@@ -5,19 +5,37 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="个人学术主页（模板）">
+  <meta name="description" content="个人学术主页（中英双语模板）">
 
   <title>你的姓名's Homepage - 一句话自我介绍</title>
+
+  <!-- 在首次绘制前恢复上次选择的语言，避免闪一下 -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('homepage-lang');
+        if (saved === 'en') { document.documentElement.setAttribute('lang', 'en'); }
+      } catch (e) { /* 隐私模式下忽略 */ }
+    })();
+  </script>
 
   <!-- Bootstrap CSS via CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <!-- Font Awesome via CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- 本站样式（复刻自参考站点） -->
+  <!-- 本站样式 -->
   <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 
 <body>
+
+  <!-- ========== 语言切换按钮 ========== -->
+  <button id="lang-switch" class="lang-switch" type="button" aria-label="切换到英文" title="切换语言 / Switch language">
+    <i class="fas fa-globe" aria-hidden="true"></i>
+    <span class="i18n-zh">English</span>
+    <span class="i18n-en">中文</span>
+  </button>
+
   <div class="wrapper">
 
     <!-- ========== 左侧固定栏：头像 / 姓名 / 链接 ========== -->
@@ -30,16 +48,16 @@
       </div>
       <br />
       <span>
-        <h1><b><span class="ph" title="待填写：你的姓名">你的姓名</span></b></h1>
+        <h1><b><span class="ph" title="待填写：你的姓名 / Your name">你的姓名</span></b></h1>
       </span>
       <p>
-        <a href="https://github.com/your-username">
+        <a href="https://github.com/your-username" aria-label="GitHub">
           <font color="#222"><i class="fab fa-github fa-2x"></i></font>
         </a> &nbsp
-        <a href="https://scholar.google.com/">
+        <a href="https://scholar.google.com/" aria-label="Google Scholar">
           <font color="#222"><i class="fas fa-graduation-cap fa-2x"></i></font>
         </a> &nbsp
-        <a href="mailto:your-email@example.com">
+        <a href="mailto:your-email@example.com" aria-label="Email">
           <font color="#222"><i class="fas fa-envelope fa-2x"></i></font>
         </a>
       </p>
@@ -50,7 +68,7 @@
     <section class="outer">
 
       <section id="about">
-        <p>
+        <p class="i18n-zh">
           我是 <span class="ph" title="待填写：学校／机构">你的学校／机构</span> 的
           <span class="ph" title="待填写：年级，如「三年级」">X</span> 年级博士研究生，专业为
           <span class="ph" title="待填写：专业">你的专业</span>，导师是
@@ -58,37 +76,72 @@
           在此之前，我在 <span class="ph" title="待填写：上一所学校">上一所学校／机构</span>
           获得 <span class="ph" title="待填写：学位">你的学位</span> 学位。
         </p>
-        <p>
+        <p class="i18n-en">
+          I am a <span class="ph" title="Fill in: year, e.g. third">X</span>-year Ph.D. student in
+          <span class="ph" title="Fill in: your major">Your Major</span> at
+          <span class="ph" title="Fill in: your university">Your University</span>, advised by
+          <a href="#">Prof. <span class="ph" title="Fill in: advisor">Advisor Name</span></a>.
+          Prior to this, I received my
+          <span class="ph" title="Fill in: degree">Degree</span> from
+          <span class="ph" title="Fill in: previous university">Your Previous University</span>.
+        </p>
+
+        <p class="i18n-zh">
           我的研究聚焦于 <strong><span class="ph" title="待填写：研究方向一">研究方向一</span></strong> 与
           <strong><span class="ph" title="待填写：研究方向二">研究方向二</span></strong>。
           近期我主要关注 <strong><span class="ph" title="待填写：当前聚焦的问题">当前聚焦的具体问题</span></strong>。
         </p>
-        <p>更多细节请查看我的简历 <a href="#">CV</a>。</p>
+        <p class="i18n-en">
+          My research focuses on
+          <strong><span class="ph" title="Fill in: research area 1">Research Area One</span></strong> and
+          <strong><span class="ph" title="Fill in: research area 2">Research Area Two</span></strong>.
+          Recently I have been focusing on
+          <strong><span class="ph" title="Fill in: current topic">Your Current Topic</span></strong>.
+        </p>
 
-        <h2>📢 动态</h2>
+        <p class="i18n-zh">更多细节请查看我的简历 <a href="#">CV</a>。</p>
+        <p class="i18n-en">For more details, please see my CV <a href="#">here</a>.</p>
+
+        <h2><span class="i18n-zh">📢 动态</span><span class="i18n-en">📢 News</span></h2>
         <ul>
-          <li><strong>[<span class="ph" title="待填写：年月">2026.09</span>]</strong>
+          <li class="i18n-zh"><strong>[<span class="ph" title="待填写：年月">2026.09</span>]</strong>
             论文 “<span class="ph" title="待填写：论文题目">论文题目</span>” 被
             <strong><span class="ph" title="待填写：会议或期刊">会议／期刊名称</span></strong> 录用。</li>
-          <li><strong>[<span class="ph" title="待填写：年月">2026.05</span>]</strong>
+          <li class="i18n-en"><strong>[<span class="ph" title="Fill in: date">Sep. 2026</span>]</strong>
+            Paper “<span class="ph" title="Fill in: paper title">Paper Title</span>” has been accepted by
+            <strong><span class="ph" title="Fill in: venue">Venue</span></strong>.</li>
+
+          <li class="i18n-zh"><strong>[<span class="ph" title="待填写：年月">2026.05</span>]</strong>
             <span class="ph" title="待填写：一条动态">获奖、参会报告、项目立项等消息。</span></li>
-          <li><strong>[<span class="ph" title="待填写：年月">2025.12</span>]</strong>
+          <li class="i18n-en"><strong>[<span class="ph" title="Fill in: date">May 2026</span>]</strong>
+            <span class="ph" title="Fill in: one news item">Awards, talks, or project news.</span></li>
+
+          <li class="i18n-zh"><strong>[<span class="ph" title="待填写：年月">2025.12</span>]</strong>
             个人主页上线。</li>
+          <li class="i18n-en"><strong>[<span class="ph" title="Fill in: date">Dec. 2025</span>]</strong>
+            Homepage launched.</li>
         </ul>
 
-        <h2>其他小工具</h2>
-        <p>这里放一些我自己做的工具，也许对你有用（也许没用，但欢迎看看）。</p>
+        <h2><span class="i18n-zh">其他小工具</span><span class="i18n-en">One More Thing</span></h2>
+        <p class="i18n-zh">这里放一些我自己做的工具，也许对你有用（也许没用，但欢迎看看）。</p>
+        <p class="i18n-en">Here are some tools I have built — they might be useful (or maybe not, but hopefully worth a look!).</p>
         <ul>
-          <li><a href="#">工具名称一（一句话说明）</a></li>
-          <li><a href="#">工具名称二（一句话说明）</a></li>
-          <li><a href="#">工具名称三（一句话说明）</a></li>
+          <li class="i18n-zh"><a href="#">工具名称一（一句话说明）</a></li>
+          <li class="i18n-en"><a href="#">Tool One — a one-line description</a></li>
+          <li class="i18n-zh"><a href="#">工具名称二（一句话说明）</a></li>
+          <li class="i18n-en"><a href="#">Tool Two — a one-line description</a></li>
+          <li class="i18n-zh"><a href="#">工具名称三（一句话说明）</a></li>
+          <li class="i18n-en"><a href="#">Tool Three — a one-line description</a></li>
         </ul>
       </section>
 
       <section id="research">
-        <h2>论文
+        <h2>
+          <span class="i18n-zh">论文</span><span class="i18n-en">Publications</span>
           <span style="float:right;">
-            <a href="https://scholar.google.com/">[完整列表]</a>
+            <a href="https://scholar.google.com/">
+              <span class="i18n-zh">[完整列表]</span><span class="i18n-en">[Full List]</span>
+            </a>
           </span>
         </h2>
         <br>
@@ -100,15 +153,20 @@
                 <a class="image"><img src="images/paper-1.svg" width="90%" alt=""></a>
               </td>
               <td width="75%" align="center">
-                <div class='title'><span class="ph" title="待填写：论文题目">论文题目一</span></div>
+                <div class='title'>
+                  <span class="i18n-zh"><span class="ph" title="待填写：论文题目">论文题目一</span></span>
+                  <span class="i18n-en"><span class="ph" title="Fill in: paper title">Paper Title One</span></span>
+                </div>
                 <div class='authors'>
-                  <span class='me'>你的姓名</span>,
-                  <span class='author'>合作者 A</span>,
-                  <span class='author'>合作者 B</span>,
-                  <span class='author'>导师姓名</span>
+                  <span class='me'><span class="i18n-zh">你的姓名</span><span class="i18n-en">Your Name</span></span>,
+                  <span class='author'>Co-author A</span>,
+                  <span class='author'>Co-author B</span>
                 </div>
                 <div>
-                  <span class='tag'><b><span class="ph" title="待填写：会议或期刊">会议／期刊 2026</span></b></span> /
+                  <span class='tag'><b>
+                    <span class="i18n-zh"><span class="ph" title="待填写：会议或期刊">会议／期刊 2026</span></span>
+                    <span class="i18n-en"><span class="ph" title="Fill in: venue">Venue 2026</span></span>
+                  </b></span> /
                   <span class='tag'><a href='#'>Paper</a></span> /
                   <span class='tag'><a href='#'>Code</a></span>
                 </div>
@@ -124,14 +182,20 @@
                 <a class="image"><img src="images/paper-2.svg" width="90%" alt=""></a>
               </td>
               <td width="75%" align="center">
-                <div class='title'><span class="ph" title="待填写：论文题目">论文题目二</span></div>
+                <div class='title'>
+                  <span class="i18n-zh"><span class="ph" title="待填写：论文题目">论文题目二</span></span>
+                  <span class="i18n-en"><span class="ph" title="Fill in: paper title">Paper Title Two</span></span>
+                </div>
                 <div class='authors'>
-                  <span class='me'>你的姓名</span>,
-                  <span class='author'>合作者 A</span>,
-                  <span class='author'>合作者 B</span>
+                  <span class='me'><span class="i18n-zh">你的姓名</span><span class="i18n-en">Your Name</span></span>,
+                  <span class='author'>Co-author A</span>,
+                  <span class='author'>Co-author B</span>
                 </div>
                 <div>
-                  <span class='tag'><b><span class="ph" title="待填写：会议或期刊">会议／期刊 2025</span></b></span> /
+                  <span class='tag'><b>
+                    <span class="i18n-zh"><span class="ph" title="待填写：会议或期刊">会议／期刊 2025</span></span>
+                    <span class="i18n-en"><span class="ph" title="Fill in: venue">Venue 2025</span></span>
+                  </b></span> /
                   <span class='tag'><a href='#'>Paper</a></span>
                 </div>
               </td>
@@ -146,14 +210,20 @@
                 <a class="image"><img src="images/paper-3.svg" width="90%" alt=""></a>
               </td>
               <td width="75%" align="center">
-                <div class='title'><span class="ph" title="待填写：论文题目">论文题目三</span></div>
+                <div class='title'>
+                  <span class="i18n-zh"><span class="ph" title="待填写：论文题目">论文题目三</span></span>
+                  <span class="i18n-en"><span class="ph" title="Fill in: paper title">Paper Title Three</span></span>
+                </div>
                 <div class='authors'>
-                  <span class='author'>合作者 A</span>,
-                  <span class='me'>你的姓名</span>,
-                  <span class='author'>合作者 B</span>
+                  <span class='author'>Co-author A</span>,
+                  <span class='me'><span class="i18n-zh">你的姓名</span><span class="i18n-en">Your Name</span></span>,
+                  <span class='author'>Co-author B</span>
                 </div>
                 <div>
-                  <span class='tag'><b><span class="ph" title="待填写：会议或期刊">会议／期刊 2024</span></b></span> /
+                  <span class='tag'><b>
+                    <span class="i18n-zh"><span class="ph" title="待填写：会议或期刊">会议／期刊 2024</span></span>
+                    <span class="i18n-en"><span class="ph" title="Fill in: venue">Venue 2024</span></span>
+                  </b></span> /
                   <span class='tag'><a href='#'>Paper</a></span> /
                   <span class='tag'><a href='#'>Slides</a></span>
                 </div>
@@ -166,7 +236,8 @@
       <section id="footer">
         <div class="container">
           <ul class="copyright">
-            <li>&copy; 你的姓名 2026</li>
+            <li class="i18n-zh">&copy; 你的姓名 2026</li>
+            <li class="i18n-en">&copy; Your Name 2026</li>
           </ul>
         </div>
       </section>
@@ -175,6 +246,37 @@
 
     <!-- Optional JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 语言切换逻辑 -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById('lang-switch');
+        var TITLES = {
+          zh: "你的姓名's Homepage - 一句话自我介绍",
+          en: "Your Name's Homepage - A one-line introduction"
+        };
+
+        function apply(lang) {
+          var isZh = lang !== 'en';
+          root.setAttribute('lang', isZh ? 'zh-CN' : 'en');
+          document.title = isZh ? TITLES.zh : TITLES.en;
+          if (button) {
+            button.setAttribute('aria-label', isZh ? '切换到英文' : 'Switch to Chinese');
+          }
+        }
+
+        apply(root.getAttribute('lang') === 'en' ? 'en' : 'zh');
+
+        if (button) {
+          button.addEventListener('click', function () {
+            var next = root.getAttribute('lang') === 'en' ? 'zh' : 'en';
+            apply(next);
+            try { localStorage.setItem('homepage-lang', next); } catch (e) { /* ignore */ }
+          });
+        }
+      })();
+    </script>
   </div>
 </body>
 
