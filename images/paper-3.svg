@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="260" viewBox="0 0 400 260" role="img" aria-label="论文配图占位">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f7d6b"/>
+      <stop offset="1" stop-color="#8fc4b3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="260" fill="url(#g3)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="3">
+    <path d="M70 150 L130 110 L190 140 L250 80 L330 120"/>
+    <path d="M70 180h260"/>
+    <path d="M70 60v120"/>
+  </g>
+  <text x="200" y="212" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Paper Figure</text>
+</svg>
