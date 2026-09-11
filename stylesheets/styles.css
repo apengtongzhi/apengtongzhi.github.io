@@ -277,3 +277,56 @@ h3 { font-size: 110%; border-bottom: none; }
   cursor: help;
   padding: 0 2px;
 }
+
+/* ==========================================================================
+   中英文双语切换
+   只对「隐藏」的那一侧强制 display:none，显示的一侧沿用元素自身的 display，
+   因此 <p> / <li> / <div> 等块级元素都能正常保留自己的排版。
+   ========================================================================== */
+html[lang="zh-CN"] .i18n-en,
+html[lang="en"] .i18n-zh {
+  display: none !important;
+}
+
+/* 切换按钮 */
+.lang-switch {
+  position: fixed;
+  top: 20px;
+  right: 26px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f4f4;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  color: #444;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: .03em;
+  line-height: 1;
+  padding: 7px 15px;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.lang-switch:hover {
+  background: #eaeaea;
+  color: #000;
+}
+
+.lang-switch:focus-visible {
+  outline: 2px solid #0055AA;
+  outline-offset: 2px;
+}
+
+.lang-switch .fa-globe {
+  font-size: 12px;
+}
+
+@media print, screen and (max-width: 960px) {
+  .lang-switch {
+    top: 12px;
+    right: 14px;
+  }
+}
